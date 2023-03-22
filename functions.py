@@ -24,11 +24,11 @@ def read_data(fichero):
                 dict2[key] = row[i]
             
             dict['muestra{}'.format(contador + 1)] = dict2
-            
+           
             contador += 1
             
         if contador < 10:
-            raise ValueError('El archivo debe tener al menos 10 lineas completas de muestra.')
+            raise ValueError('NO TIENE 10 LINEAS')
             
     return dict
 
@@ -74,13 +74,14 @@ def  split (dict):
 
 def reduce(dict, atributo):
     #volvemos a gastar tuplas para devolver datos
-    lista=list(dict)
-    atributostr=str(atributo)
-for i in dict.items():
-    if  i != dict:
-        raise ValueError('EL atributo que se le esta pasando no exite')
-            
-    return lista, atributostr
+
+    if atributo not in next(iter(dict.values())).values():
+        raise ValueError(f'Atributo "{atributo}"')
+
+    return [sample_dict[atributo] for sample_dict in 
+            dict['white'].values()] + \
+           [sample_dict[atributo] for sample_dict in 
+            dict['red'].values()]
 
 
 def silhouette(list1,list2):
@@ -88,3 +89,4 @@ def silhouette(list1,list2):
     #S(i)=((b(i)-a(i))/maximo(a(i),b(i)))
 
     
+    return list1
