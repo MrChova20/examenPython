@@ -1,16 +1,38 @@
 import csv
 
+import csv
 
 def read_data(fichero):
-    with open(fichero, 'r') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=';')
-        dic = {}
+    dict = {}
     
+    with open(fichero, 'r') as csv:
+        csv_reader = csv.reader(csv, delimiter=';')
+        
+        next(csv_reader)
+        
+        contador = 0
+        
+        for row in csv:
+            
+            if '' in row:
+                continue
+            
+            dict2 = {}
+            
+            for i in range(len(row)):
+                key = 'dato{}'.format(i+1)
+                dict2[key] = row[i]
+            
+            dict['muestra{}'.format(contador + 1)] = dict2
+            
+            contador += 1
+            
+        if contador < 10:
+            raise ValueError('El archivo debe tener al menos 10 lineas completas de muestra.')
+            
+    return dict
 
-    if lineas_fichero == "":
-        raise ValueError("excepcion 1")#excepeción
-    
-
+    ""
     {
     'dato':{'type':'white',
             'fixed acidity':'7',
@@ -28,7 +50,13 @@ def read_data(fichero):
         },
 
 
-return dic
+      
 
 }
+""
 
+def  split (dict):
+
+    typeWhite={}
+    typeRed={}
+    #for
