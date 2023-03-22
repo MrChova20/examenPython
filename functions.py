@@ -1,5 +1,15 @@
-def read_data(fichero):
+import csv
 
+
+def read_data(fichero):
+    with open(fichero, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=';')
+        dic = {}
+    
+
+    if lineas_fichero == "":
+        raise ValueError("excepcion 1")#excepeción
+    
 
     {
     'dato':{'type':'white',
@@ -16,8 +26,9 @@ def read_data(fichero):
             'alcohol':'8.8',
             'quality':'6',
         },
-        
-    }
 
-    }
+
+return dic
+
+}
 
