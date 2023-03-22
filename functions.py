@@ -1,6 +1,5 @@
 import csv
-
-import csv
+import math
 
 def read_data(fichero):
     dict = {}
@@ -86,7 +85,16 @@ def reduce(dict, atributo):
 
 def silhouette(list1,list2):
     #Silhouette(lista)=media(S(i))
-    #S(i)=((b(i)-a(i))/maximo(a(i),b(i)))
+    for i in range(len(list1) and range(len(list2))):
+        contador += (contador+i)/i+1
+    
+    S(i)=((b(i)-a(i))/max(a(i),b(i)))
+    math.pow()
+    abs()
+    math.sqrt()
+
+    valores = []
+    for i, x1 in enumerate(list1):
 
     
     return list1
