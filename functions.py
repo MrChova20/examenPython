@@ -56,7 +56,35 @@ def read_data(fichero):
 ""
 
 def  split (dict):
-
+#usando una tupla resolvemos el problema de devolver dos objetos sin necesidad de un array
     typeWhite={}
-    typeRed={}
-    #for
+    typeRed={}    
+    for dato, wine in dict.items():
+        if wine['type'] == 'white':
+            del wine['type']
+            typeWhite[dato] = wine
+            
+        elif wine['type'] == 'red':
+            del wine['type']
+            typeRed[dato] = wine
+            
+    return typeWhite, typeRed 
+
+
+
+def reduce(dict, atributo):
+    #volvemos a gastar tuplas para devolver datos
+    lista=list(dict)
+    atributostr=str(atributo)
+for i in dict.items():
+    if  i != dict:
+        raise ValueError('EL atributo que se le esta pasando no exite')
+            
+    return lista, atributostr
+
+
+def silhouette(list1,list2):
+    #Silhouette(lista)=media(S(i))
+    #S(i)=((b(i)-a(i))/maximo(a(i),b(i)))
+
+    
